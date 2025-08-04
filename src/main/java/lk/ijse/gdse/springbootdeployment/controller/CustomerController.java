@@ -4,10 +4,7 @@ import lk.ijse.gdse.springbootdeployment.entity.Customer;
 import lk.ijse.gdse.springbootdeployment.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/customers")
@@ -21,7 +18,7 @@ public class CustomerController {
         return "Hello World";
     }
     @PostMapping("/save")
-    public ResponseEntity<Customer> saveCustomer(Customer customer) {
+    public ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer) {
         return ResponseEntity.ok(customerService.saveCustomer(customer));
     }
 }
